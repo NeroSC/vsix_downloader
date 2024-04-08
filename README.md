@@ -9,6 +9,17 @@ This work builds on top of Taylor Jones work available here <https://gist.github
 
 The script downloads the latest versions of set extensions, regardless of your VSCode installation. VSCode might therefore need to be updated so that all extensions work properly.
 
+## Usage
+
+```sh
+usage: vsix_download.py [-h] [-f FILE] [-i]
+
+options:
+  -h, --help            show this help message and exit
+  -f FILE, --file FILE  File containing extensions
+  -i, --install         Allows to auto intall each vsix as they are downloaded
+```
+
 ## Launch
 
 Two options
@@ -16,7 +27,7 @@ Two options
 - with file :
 
 ```sh
-python3 vsix_download.py -file extensions.txt
+python3 vsix_download.py --file extensions.txt
 ```
 
 - with installed vscode extensions

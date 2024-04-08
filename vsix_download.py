@@ -45,9 +45,17 @@ if __name__ == "__main__":
 
     # adding -file argument
     parser = argparse.ArgumentParser()
-    parser.add_argument("-file", type=str, help="File containing extensions")
+    parser.add_argument("-f", "--file", type=str, help="File containing extensions")
+    parser.add_argument("-i", "--install", action='store_true',
+                        help="Allows to auto intall each vsix as they are downloaded")
 
     args = parser.parse_args()
+
+    # Arguments checks
+    if args.install:
+        INSTALL = True
+    else:
+        INSTALL = False
 
     if args.file:
         with open("extensions.txt", "r", encoding="utf-8") as file:
@@ -63,3 +71,5 @@ if __name__ == "__main__":
         url = vsix_url(ext)
         cmd = vsix_curl(ext, url, OUTPUT_DIR)
         subprocess.run(cmd.split(), check=True)
+        if True is INSTALL:
+            subprocess.run(["code", "--install-extension", f"{OUTPUT_DIR}/{ext}.vsix"], check=True)
