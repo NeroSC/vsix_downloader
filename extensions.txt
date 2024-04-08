@@ -1,0 +1,6 @@
+ms-python.pylint
+ms-python.python
+ms-python.vscode-pylance
+ms-vscode.cpptools
+ms-vscode.cpptools-themes
+ms-vscode.hexeditor
