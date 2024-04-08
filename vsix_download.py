@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Script that downloads all vsix extension from a file or from your vscode installation
+"""
+Download the latest versions of all installed VSCode extensions with cURL.
+TODO: Update to allow for specifying extension version (but default to latest version).
 """
 
 import subprocess
