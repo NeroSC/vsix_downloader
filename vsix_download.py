@@ -6,6 +6,7 @@
 
 import subprocess
 import argparse
+from pathlib import Path
 
 
 def vsix_url(extension: str):
@@ -36,6 +37,11 @@ def vsix_curl(extension: str, link: str, output_dir: str):
 if __name__ == "__main__":
 
     OUTPUT_DIR = './extensions'
+
+    if Path(OUTPUT_DIR).is_dir():
+        pass
+    else:
+        subprocess.run(['mkdir', OUTPUT_DIR], check=True)
 
     # adding -file argument
     parser = argparse.ArgumentParser()
