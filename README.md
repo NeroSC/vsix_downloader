@@ -4,20 +4,31 @@ This work builds on top of Taylor Jones work available here <https://gist.github
 
 - Adds option to use a file instead of installed extensions using `argparse`;
 - Updates use of module `os` with `subprocess`.
+- Install the downloaded extentions
 
 ## What it does
 
-The script downloads the latest versions of set extensions, regardless of your VSCode installation. VSCode might therefore need to be updated so that all extensions work properly.
+The script downloads the latest versions of set extensions, unless a version is specified next to the extension name in extension@version format
 
 ## Usage
 
 ```sh
-usage: vsix_download.py [-h] [-f FILE] [-i]
+Download VS Code extensions as VSIX files using cURL.
 
-options:
-  -h, --help            show this help message and exit
-  -f FILE, --file FILE  File containing extensions
-  -i, --install         Allows to auto intall each vsix as they are downloaded
+Default:
+    Download the latest version of every installed extension.
+
+Options:
+    -f, --file       Read extension IDs and optional versions from a file.
+    -i, --install    Install each downloaded VSIX.
+    -o, --output-dir Choose the output directory.
+    --installed-versions
+                     Download the exact versions currently installed.
+
+Extension file format (one per line):
+    ms-python.python
+    esbenp.prettier-vscode
+    ms-vscode.cpptools@1.20.5
 ```
 
 ## Launch
